@@ -1,0 +1,30 @@
+<%=
+form_for @review, html: {class: 'form-inline'} do |f| %><%=
+    f.hidden_field 'reviewer_id', value: @review.reviewer_id %><%=
+    f.hidden_field 'subject_id', value: @review.subject_id %>
+    <div class="row-fluid">
+      <h1>Wine #<%= @review.subject_id %> by <%= @reviewer.name %><a class="btn pull-right" href="<%= reviewer_path @review.reviewer_id %>"><i class="icon-list"></i></a></h1>
+    </div>
+<div class="row-fluid">
+  <span class="span2">
+    Rating (1&ndash;100): <%= f.text_field :rating, size: 3, type: 'number', min: 0, max:100, width: '2em', placeholder: 'Rating', class: 'input-mini' %>
+  </span>
+  <span class="span2">
+    Price ($): <%= f.text_field :price, size: 3, type: 'number', min: 0, max:100, step: 'any', width: '2em', placeholder: 'Price', class: 'input-mini' %>
+  </span>
+</div>
+<div class="row-fluid">
+  <fieldset>
+    <legend>Varietals</legend>
+    <%= render partial: '/varietals/checkbox',      collection: @all_varietals,     locals: {selected: @selected_varietals} %>
+  </fieldset>
+  <fieldset>
+    <legend>Descriptions</legend>
+    <%= render partial: '/descriptions/checkbox',   collection: @all_descriptions,  locals: {selected: @selected_descriptions} %>
+  </fieldset>
+</div>
+<div class="row-fluid">
+  <button type="submit" class="btn">Submit</button>
+</div>
+<%-
+end %>

@@ -1,0 +1,6 @@
+<span class="span3">
+  <%= id = checkbox.id
+      name = 'varietal[' + id.to_s + ']'
+      checked = @varietal_ids.include? id
+      check_box_tag name, 1, checked %>&nbsp;<%= label_tag name, checkbox.varietal %>
+</span>

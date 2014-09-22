@@ -1,0 +1,143 @@
+class AddDescriptions < ActiveRecord::Migration
+  class Description < ActiveRecord::Base
+    attr_accessible :description
+  end
+
+  def up
+    descs = "Accessible
+Acidic
+Aftertaste
+Aggressive
+Astringent
+Baked
+Balanced
+Barnyard
+Big
+Biscuity
+Bitter
+Bright
+Buttery
+Cassis
+Cedarwood
+Charming
+Cheesy
+Chewy
+Chocolaty
+Cigar-box
+Citrous
+Clean
+Clear
+Cloves
+Cloying
+Coarse
+Coconut
+Complete
+Complex
+Concentrated
+Corked
+Creamy
+Crisp
+Crust
+Delicate
+Dirty
+Dried
+Dry
+Earthy
+Elegant
+Expansive
+Expressive
+Farmyard
+Fat
+Feminine
+Firm
+Flabby
+Flat
+Fleshy
+Foxy
+Fresh
+Fruit
+Full
+Gasoline
+Grapey
+Grassy
+Green
+Gutsy
+Hard
+Harsh
+Heavy
+Herbaceous
+Hollow
+Hot
+Inky
+Jammy
+Lean
+Leathery
+Lemony
+Liquorice
+Lively
+Luscious
+Mature
+Mean
+Meaty
+Mellow
+Minerality
+Musky
+Nervy
+Nose
+Oaky
+Oily
+Old
+Opulent
+Oxidized
+Peppery
+Perfume
+Plummy
+Polished
+Powerful
+Prickly
+Racy
+Reticent
+Rich
+Robust
+Round
+Sassy
+Sharp
+Sherrylike
+Short
+Smokey
+Smooth
+Soft
+Sour
+Soy Sauce
+Spicy
+Stalky
+Structure
+Supple
+Sweet
+Tannic
+Tar
+Tart
+Thin
+Tight
+Toasty
+Unoaked
+Vanilla
+Vegetal
+Vivid
+Voluptuous
+Warm
+Watery
+Yeasty
+Young
+Zesty
+Zippy".split("\n")
+
+    descs.each do |d|
+      Description.create description: d
+    end
+  end
+
+  def down
+    Description.all.each{|d| d.destroy}
+  end
+end

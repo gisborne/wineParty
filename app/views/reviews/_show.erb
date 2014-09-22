@@ -1,0 +1,18 @@
+<%-
+review = local_assigns[:reviews] -%>
+<a href="<%= edit_review_path reviewer_id: review.reviewer_id, subject_id: review.subject_id %>">
+<div class="row-fluid">
+  <span class="span2">
+    #<%= review.subject_id %>
+  </span>
+  <span class="span2">
+    Rated: <%= review.rating %>/<%= number_to_currency review.price %>
+  </span>
+  <span class="span2">
+    <%= review.descriptions_str.html_safe rescue '' %>
+  </span>
+  <span class="span2">
+    <%= review.varietals_str.html_safe rescue '' %>
+  </span>
+</div>
+</a>

@@ -1,0 +1,6 @@
+<span class="span2">
+  <%= id = checkbox.id
+      name = 'description[' + id.to_s + ']'
+      checked = @description_ids.include? id
+      check_box_tag name, 1, checked %>&nbsp;<%= label_tag name, checkbox.description %>
+</span>

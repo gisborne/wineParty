@@ -1,0 +1,15 @@
+<%- if @reviewers.count > 0 -%>
+    <div class="span12">
+        Who are you?
+    </div>
+    <%= render @reviewers %>
+    <div class="span12">
+      … or are you new?
+    </div>
+    <%= render partial: 'new_reviewer' %>
+<%- else -%>
+    <div class="span12">
+        New <strike>test subject</strike> reviewer!
+    </div>
+    <%= render partial: 'new_reviewer' %>
+<%- end -%>

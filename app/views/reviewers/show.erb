@@ -1,0 +1,11 @@
+<div class="row-fluid">
+  <span class="span12"><h1><a href="/" class="btn btn-small pull-right"><i class="icon-home"></i></a><%= @reviewer.name %></h1></span>
+</div>
+<%-
+@reviews.each do |r| -%>
+    <%= render partial: '/reviews/show', locals: {reviews: r} %><%-
+end %>
+<hr><%-
+@missing_reviews.each do |r| -%>
+    <%= render partial: '/reviews/show', locals: {reviews: r} %><%-
+end -%>
